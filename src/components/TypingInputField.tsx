@@ -27,7 +27,8 @@ function TypingInputField({ inputRef, setMistakes }: TypingInputFieldProps) {
   const [hasUnfixedMistakes, setHasUnfixedMistakes] = useState(false);
 
   const mistakeSoundRef = useRef<HTMLAudioElement>(null);
-  const { value: soundSignalOnMistake } = useLocalStorage("playMistakeSound");
+  const { value: soundSignalOnMistake, setValue: setSoundSignalOnMistake } =
+    useLocalStorage("playMistakeSound");
 
   const {
     textId,
@@ -41,6 +42,12 @@ function TypingInputField({ inputRef, setMistakes }: TypingInputFieldProps) {
   } = useTyping();
 
   const dispatch = useDispatchWithTypes();
+
+  useEffect(() => {
+    if (soundSignalOnMistake === null) {
+      setSoundSignalOnMistake(true);
+    }
+  }, []);
 
   useEffect(() => {
     mistakeSoundRef.current?.load();
