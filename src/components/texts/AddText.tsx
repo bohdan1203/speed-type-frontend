@@ -53,7 +53,7 @@ const AddText = ({ setIsAddTextMode }: AddTextProps) => {
         <Modal.Title>Add New Text</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {addTextError && (
+        {(addTextError as string) && (
           <Alert variant="danger">{addTextError as string}</Alert>
         )}
         <Form onSubmit={submitHandler}>
