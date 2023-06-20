@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 
 import useDispatchWithTypes from "./hooks/useDispatchWithTypes";
 import useAuth from "./hooks/useAuth";
-import useLocalStorage from "./hooks/useLocalStorage";
 
 import MainLayout from "./layouts/MainLayout";
 import AuthenticatedOnly from "./layouts/AuthenticatedOnly";
