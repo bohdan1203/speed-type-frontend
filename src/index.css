@@ -1,0 +1,56 @@
+a {
+  text-decoration: none;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+caption {
+  caption-side: top;
+}
+
+.signup-input-valid {
+  border-color: rgb(40, 167, 69);
+}
+
+.signup-input-valid:focus {
+  border-color: rgb(40, 167, 69);
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.float-right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.typing-input-mistakes {
+  border-color: rgb(220, 53, 69) !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.typing-input-finished {
+  border-color: rgb(40, 167, 69) !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.typing-input-no-mistakes {
+  border-color: transparent !important;
+}
+
+.text-list-item:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.disable-select {
+  user-select: none;
+}
