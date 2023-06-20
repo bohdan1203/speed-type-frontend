@@ -12,7 +12,7 @@ import { ErrorResponse } from "../interfaces/ErrorResponse";
 const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     refresh: builder.query({
-      query: () => "auth/refresh",
+      query: () => "/auth/refresh",
     }),
 
     signUp: builder.mutation({
