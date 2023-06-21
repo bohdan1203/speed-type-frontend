@@ -39,7 +39,12 @@ function useAuth() {
 
   const [
     logIn,
-    { isLoading: logInLoading, isSuccess: logInSuccess, error: logInError },
+    {
+      data: logInData,
+      isLoading: logInLoading,
+      isSuccess: logInSuccess,
+      error: logInError,
+    },
   ] = useLogInMutation();
 
   const [
@@ -60,6 +65,7 @@ function useAuth() {
     signUpError,
 
     logIn,
+    logInData,
     logInLoading,
     logInSuccess,
     logInError,

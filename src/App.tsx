@@ -34,6 +34,9 @@ function App() {
     }
   }, [userData, dispatch, setCredentials]);
 
+  !localStorage.getItem("playMistakeSound") &&
+    localStorage.setItem("playMistakeSound", "true");
+
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>

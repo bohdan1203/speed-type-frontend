@@ -27,7 +27,8 @@ function LogIn() {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { logIn, logInLoading, logInError, setCredentials } = useAuth();
+  const { logIn, logInData, logInLoading, logInError, setCredentials } =
+    useAuth();
   const { value: rememberUser, setValue: setRememberUser } =
     useLocalStorage("rememberUser");
 
@@ -40,6 +41,25 @@ function LogIn() {
   useEffect(() => {
     setShowErrorMessage(false);
   }, [formState]);
+
+  //////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
+
+  useEffect(() => {
+    if (logInData && rememberUser) {
+      const userData = {
+        user: logInData.user,
+        accessToken: logInData.accessToken,
+      };
+
+      localStorage.setItem("currentUser", JSON.stringify(userData));
+    }
+  }, [logInData, rememberUser]);
+
+  //////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
 
   function handleUsernameOrEmailChange(e: ChangeEvent<HTMLInputElement>) {
     setFormState((previousFormState: LogInFormInputs) => ({
