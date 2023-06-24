@@ -24,19 +24,26 @@ import Settings from "./pages/Settings";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
-  const { userData, setCredentials } = useAuth();
+  const {
+    //  userData,
+    setCredentials,
+  } = useAuth();
 
   const dispatch = useDispatchWithTypes();
 
   useEffect(() => {
-    if (userData) {
-      dispatch(setCredentials(userData));
-    }
+    // if (userData) {
+    //   dispatch(setCredentials(userData));
+    // }
 
     //////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
-    else if (!userData && localStorage.getItem("currentUser")) {
+
+    if (
+      // !userData &&
+      localStorage.getItem("currentUser")
+    ) {
       dispatch(
         setCredentials(
           JSON.parse(localStorage.getItem("currentUser") as string)
@@ -46,7 +53,11 @@ function App() {
     //////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
-  }, [userData, dispatch, setCredentials]);
+  }, [
+    // userData,
+    dispatch,
+    setCredentials,
+  ]);
 
   !localStorage.getItem("playMistakeSound") &&
     localStorage.setItem("playMistakeSound", "true");
