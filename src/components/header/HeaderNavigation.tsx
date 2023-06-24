@@ -12,11 +12,13 @@ function HeaderNavigation() {
   const location = useLocation();
 
   const { currentUser } = useAuth();
-  const { value: rememberUser } = useLocalStorage("rememberUser");
+  // const { value: rememberUser } = useLocalStorage("rememberUser");
 
-  const { isLoading: userDataLoading } = useRefreshQuery("refresh", {
-    skip: !rememberUser,
-  });
+  // const { isLoading: userDataLoading } = useRefreshQuery("refresh", {
+  //   skip: !rememberUser,
+  // });
+
+  const userDataLoading = false;
 
   function getActiveLinkClassName(pathname: string): string {
     return location.pathname.includes(pathname) ? "text-warning fw-bold" : "";
